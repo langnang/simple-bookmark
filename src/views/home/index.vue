@@ -181,11 +181,14 @@ export default {
         });
     },
     handleUploadOnChange(file, fileList) {
+      if (fileList.length === 0) return;
       console.log(file, fileList);
       const reader = new FileReader();
       reader.readAsText(file.raw, 'utf-8');
       reader.onload = evt => {
         const fileString = evt.target.result;
+        console.log(this.mapSites, JSON.parse(fileString));
+        console.log([...this.mapSites, ...JSON.parse(fileString)]);
         this.$store.commit('SET_SITES', [...this.mapSites, ...JSON.parse(fileString)]);
       };
     },
