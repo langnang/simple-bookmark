@@ -64,6 +64,7 @@ export default {
 .site-avatar {
 }
 .site-header-right {
+  width: 100%;
   margin-left: 10px;
 }
 .site-title {

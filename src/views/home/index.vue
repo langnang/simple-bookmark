@@ -21,9 +21,11 @@
       <el-row :gutter="20" class="site-group">
         <el-col :span="4">
           <el-button v-if="tags.length > 0" size="mini" type="info" round style="width: 100%" @click="checkboxGroup1 = []">重置选中标签</el-button>
-          <el-checkbox-group v-if="tags.length > 0" v-model="checkboxGroup1" size="small">
-            <el-checkbox-button v-for="city in tags" :label="city" :key="city">{{ city }}</el-checkbox-button>
-          </el-checkbox-group>
+          <el-scrollbar v-if="tags.length > 0" style="width: 100%; height: calc(100vh - 108px)">
+            <el-checkbox-group v-model="checkboxGroup1" size="mini">
+              <el-checkbox-button v-for="city in tags" :label="city" :key="city">{{ city }}</el-checkbox-button>
+            </el-checkbox-group>
+          </el-scrollbar>
           <el-empty v-else description="暂无标签"></el-empty>
         </el-col>
         <el-col :span="18">

@@ -34,7 +34,7 @@
           <i class="el-icon-info"></i>
         </el-tooltip>
       </template>
-      <el-input v-model="form.desc"></el-input>
+      <el-input type="textarea" v-model="form.desc" :rows="3"></el-input>
     </el-form-item>
     <el-form-item label="排序" prop="sortWeight">
       <template v-slot:label>
@@ -52,7 +52,7 @@
           <i class="el-icon-info"></i>
         </el-tooltip>
       </template>
-      <div class="site-tags" style="display: inline; margin-right: 10px">
+      <div class="site-tags" style="display: inline">
         <el-tag class="site-tag" v-for="tag in form.tags" :key="tag" closable :disable-transitions="false" @close="handleCloseTag(tag)">
           {{ tag }}
         </el-tag>
