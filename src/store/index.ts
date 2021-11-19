@@ -1,6 +1,9 @@
 import { createStore } from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 
+import tab from './modules/tab';
+
+import getters from './getters';
 export default createStore({
   state: {
     siteInfo: {
@@ -21,13 +24,9 @@ export default createStore({
     },
   },
   actions: {},
-  getters: {
-    sites: (state) => state.sites.sort((a: any, b: any) => b.sortWeight - a.sortWeight),
-    tags: (state) => [
-      ...new Set(
-        state.sites.reduce((tol, item: any) => tol.concat(item.tags || []), [])
-      ),
-    ],
+  getters,
+  modules: {
+    tab,
   },
   plugins: [createPersistedState()],
 });
