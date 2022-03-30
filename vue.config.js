@@ -4,7 +4,7 @@ module.exports = {
   devServer: {},
   chainWebpack: function (config) {
     config.plugin("html").tap(function (args) {
-      args[0].title = "Simple Bookmark - Langnang"; // 自定义标题
+      args[0].title = "Simple Form Collection - Langnang"; // 自定义标题
       return args;
     });
   },

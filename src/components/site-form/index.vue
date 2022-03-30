@@ -1,56 +1,44 @@
 <template>
   <el-form ref="form" :model="form" :rules="rules" label-width="100px">
-    <el-form-item label="标题" prop="title">
-      <template v-slot:label>
-        标题
-        <el-tooltip effect="dark" content="标题" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
-      </template>
-      <el-input v-model="form.title"></el-input>
-    </el-form-item>
     <el-form-item label="地址" prop="link">
       <template v-slot:label>
         地址
-        <el-tooltip effect="dark" content="地址" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+        <el-tooltip effect="dark" content="地址" placement="right"><i class="el-icon-info"></i></el-tooltip>
       </template>
       <el-input v-model="form.link"></el-input>
+    </el-form-item>
+    <el-form-item label="标题" prop="title">
+      <template v-slot:label>
+        标题
+        <el-tooltip effect="dark" content="标题" placement="right"><i class="el-icon-info"></i></el-tooltip>
+      </template>
+      <el-input v-model="form.title"></el-input>
     </el-form-item>
     <el-form-item label="图标" prop="avatar">
       <template v-slot:label>
         图标
-        <el-tooltip effect="dark" content="图标" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+        <el-tooltip effect="dark" content="图标" placement="right"><i class="el-icon-info"></i></el-tooltip>
       </template>
       <el-input v-model="form.avatar"></el-input>
     </el-form-item>
     <el-form-item label="描述" prop="desc">
       <template v-slot:label>
         描述
-        <el-tooltip effect="dark" content="描述" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+        <el-tooltip effect="dark" content="描述" placement="right"><i class="el-icon-info"></i></el-tooltip>
       </template>
-      <el-input type="textarea" v-model="form.desc" :rows="3"></el-input>
+      <el-input type="textarea" v-model="form.desc"></el-input>
     </el-form-item>
     <el-form-item label="排序" prop="sortWeight">
       <template v-slot:label>
         排序
-        <el-tooltip effect="dark" content="排序权重，值越大越靠前" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+        <el-tooltip effect="dark" content="排序权重，值越大越靠前" placement="right"><i class="el-icon-info"></i></el-tooltip>
       </template>
       <el-input v-model="form.sortWeight" type="number" placeholder="排序权重值，值越大越靠前"></el-input>
     </el-form-item>
     <el-form-item label="标签" prop="tags">
       <template v-slot:label>
         标签
-        <el-tooltip effect="dark" content="标签" placement="right">
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+        <el-tooltip effect="dark" content="标签" placement="right"><i class="el-icon-info"></i></el-tooltip>
       </template>
       <div class="site-tags" style="display: inline">
         <el-tag class="site-tag" v-for="tag in form.tags" :key="tag" closable :disable-transitions="false" @close="handleCloseTag(tag)">

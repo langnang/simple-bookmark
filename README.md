@@ -1,2 +1,3 @@
-# simple-bookmark
-书签收藏工具
+# simple-form-collection
+
+表单收集工具

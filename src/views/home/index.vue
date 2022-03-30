@@ -1,4 +1,5 @@
 <template>
+  <Layout />
   <el-container>
     <el-main style="padding-bottom: 0">
       <el-row :gutter="20">
@@ -50,12 +51,14 @@ import SiteForm from '@/components/site-form';
 import SiteCardGroup from '@/components/site-card-group';
 import SiteCard from '@/components/site-card';
 import { saveAs } from 'file-saver';
+import Layout from '@/layout';
 export default {
   name: 'App',
   components: {
     SiteForm,
     SiteCardGroup,
     SiteCard,
+    Layout,
   },
   computed: {
     ...mapGetters({
@@ -181,11 +184,14 @@ export default {
         });
     },
     handleUploadOnChange(file, fileList) {
+      if (fileList.length === 0) return;
       console.log(file, fileList);
       const reader = new FileReader();
       reader.readAsText(file.raw, 'utf-8');
       reader.onload = evt => {
         const fileString = evt.target.result;
+        console.log(this.mapSites, JSON.parse(fileString));
+        console.log([...this.mapSites, ...JSON.parse(fileString)]);
         this.$store.commit('SET_SITES', [...this.mapSites, ...JSON.parse(fileString)]);
       };
     },
